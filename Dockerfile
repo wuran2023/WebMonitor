@@ -1,4 +1,4 @@
-FROM python:3.9-slim-buster
+FROM python:3.6-slim-buster
 
 ENV LC_ALL C.UTF-8
 ENV LANG C.UTF-8
@@ -6,17 +6,16 @@ ENV PORT 5000
 ENV USERNAME admin
 ENV PASSWORD admin
 ENV OPENSSL_CONF /etc/ssl/
-ENV DB_NAME=web
-ENV DB_USER=root
-ENV DB_PASSWORD=zhou2283724797
-ENV DB_HOST=localhost
-ENV DB_PORT=3306
+ENV DB_NAME web
+ENV DB_USER root
+ENV DB_PASSWORD zhou2283724797
+ENV DB_HOST localhost
+ENV DB_PORT 3306
 
 COPY . /app
 
 WORKDIR /app
-RUN apt-get install -y libmysqlclient-dev
-RUN apt-get install -y pkg-config
+
 RUN set -x; buildDeps='wget build-essential' \
 && apt-get update && apt-get install -y ${buildDeps} \ 
 chrpath libssl-dev libxft-dev libfreetype6 libfreetype6-dev libfontconfig1 libfontconfig1-dev \
