@@ -1,7 +1,11 @@
 FROM python:3.6-slim-buster
 
+FROM debian:latest
+
+# 更新包信息并安装依赖
 RUN apt-get update && \
-    apt-get install -y python3 python3-pip default-libmysqlclient-dev && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    default-libmysqlclient-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
