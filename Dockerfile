@@ -15,7 +15,8 @@ ENV DB_PORT=3306
 COPY . /app
 
 WORKDIR /app
-
+RUN apt-get install -y libmysqlclient-dev
+RUN apt-get install -y pkg-config
 RUN set -x; buildDeps='wget build-essential' \
 && apt-get update && apt-get install -y ${buildDeps} \ 
 chrpath libssl-dev libxft-dev libfreetype6 libfreetype6-dev libfontconfig1 libfontconfig1-dev \
