@@ -12,7 +12,7 @@ class TaskConfig(AppConfig):
         self.scheduler.add_job(
             self.start_tasks,
             'interval',
-            minutes=240,  # 每隔4小时运行一次
+            minutes=10,  # 每隔4小时运行一次
         )
         self.scheduler.start()
 
